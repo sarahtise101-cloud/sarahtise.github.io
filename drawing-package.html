@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Package | Sarah Tise</title>
+    <style>
+        :root {
+            --bg-dark: #0f0b1e;
+            --bg-card: #1a1429;
+            --accent-pink: #e60073;
+            --accent-magenta: #ff007f;
+            --text-light: #f1f1f1;
+            --text-gray: #b8b5c9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); padding: 60px 10%; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; border-left: 5px solid var(--accent-magenta); padding-left: 15px; }
+        p { color: var(--text-gray); margin-bottom: 40px; font-size: 1.1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 900px; }
+        .card { background: var(--bg-card); border: 1px solid rgba(255, 0, 127, 0.3); border-radius: 12px; padding: 30px; }
+        .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+        .btn { display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, var(--accent-pink), var(--accent-magenta)); color: white; text-decoration: none; font-weight: bold; border-radius: 30px; margin-top: 15px; }
+        .back { display: inline-block; margin-top: 40px; color: var(--accent-magenta); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Drawing Package</h1>
+    <p>SolidWorks manufacturing and assembly drawings for the rocket orbit fidget project.</p>
+    
+    <div class="grid">
+        <div class="card">
+            <h3>Assembly Drawing</h3>
+            <p>Full component breakdown and bill of materials (BOM) for the orbit assembly.</p>
+            <a href="rocket-orbit-assem.pdf" target="_blank" class="btn">Open Assembly PDF</a>
+        </div>
+        <div class="card">
+            <h3>Ring Base Drawing</h3>
+            <p>Detailed dimensional drafting and tolerance notes for the 3D printed ring base.</p>
+            <a href="rocket-ring-base.pdf" target="_blank" class="btn">Open Ring Base PDF</a>
+        </div>
+    </div>
+
+    <div>
+        <a href="index.html" class="back">← Back to Portfolio</a>
+    </div>
+</body>
+</html>
