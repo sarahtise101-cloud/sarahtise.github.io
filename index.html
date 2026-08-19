@@ -50,6 +50,7 @@
             letter-spacing: 2px;
             color: var(--text-light);
             text-transform: uppercase;
+            cursor: pointer;
         }
 
         nav ul {
@@ -182,6 +183,8 @@
             box-shadow: 0 4px 15px rgba(230, 0, 115, 0.4);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             margin-top: 10px;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-magenta:hover {
@@ -203,24 +206,59 @@
             font-size: 1.1rem;
             margin-bottom: 40px;
         }
+
+        /* Project Sub-page Styling */
+        .project-card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin-top: 20px;
+        }
+
+        .sub-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .sub-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-magenta);
+        }
+
+        .sub-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .sub-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
     <!-- Header / Navigation Bar -->
     <header>
-        <div class="logo">Sarah Tise</div>
+        <div class="logo" onclick="switchTab('about')">Sarah Tise</div>
         <nav>
             <ul>
                 <li><a onclick="switchTab('about')" class="nav-link active" id="link-about">About Me</a></li>
                 <li class="dropdown">
                     <a onclick="switchTab('projects')" class="nav-link" id="link-projects">Projects ▾</a>
                     <ul class="dropdown-content">
-                        <li><a href="#fidget">Fidget toy design & manufacturing</a></li>
-                        <li><a href="#traffic">Traffic light design & simulation</a></li>
-                        <li><a href="#wrist">Wrist support design & prototype</a></li>
-                        <li><a href="#rocketry">AIAA rocketry projects</a></li>
-                        <li><a href="#sorting">Automated color sorting machine</a></li>
+                        <li><a onclick="switchTab('fidget')">Fidget toy design & manufacturing</a></li>
+                        <li><a onclick="switchTab('traffic')">Traffic light design & simulation</a></li>
+                        <li><a onclick="switchTab('wrist')">Wrist support design & prototype</a></li>
+                        <li><a onclick="switchTab('rocketry')">AIAA rocketry projects</a></li>
+                        <li><a onclick="switchTab('sorting')">Automated color sorting machine</a></li>
                     </ul>
                 </li>
                 <li><a onclick="switchTab('experience')" class="nav-link" id="link-experience">Professional Experience</a></li>
@@ -241,7 +279,7 @@
                 <p>I’ve worked on a variety of practical projects which are all listed on this site. My first internship was at OPIRA Lab as a Machine Learning for Skin Melanoma Diagnosis Intern, conducting research in optical and photoacoustic imaging. Last summer, I completed a summer internship at TTX Company as a Maintenance & Modification Engineering Intern, where I supported mechanical evaluations, system improvements, and gained practical experience with SolidWorks, AutoCAD, Excel, and time studies. This past summer I completed an internship at EH Wachs, a division of ITW, as a manufacturing engineer intern, where I implemented new manufacturing processes, or optimized existing ones.</p>
                 <p>In addition, I serve as Vice President of UIC’s AIAA section, where I lead rocketry projects ranging from designing custom carbon fiber composite mid-power rockets to leading the vehicle and safety teams for our participation in the 2025-2026 NASA USLI Competition.</p>
                 <p>Feel free to browse this site to get a closer look at my projects and experiences!</p>
-                <a onclick="switchTab('projects')" class="btn-magenta">Explore My Projects</a>
+                <button onclick="switchTab('projects')" class="btn-magenta">Explore My Projects</button>
             </div>
         </div>
     </section>
@@ -251,13 +289,40 @@
         <h2 class="section-title">Engineering Projects</h2>
         <p class="section-desc">Select any project below to view detailed breakdown documents, CAD models, and simulation results.</p>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px; max-width: 600px;">
-            <li><a href="#fidget" class="btn-magenta" style="display: block; text-align: center;">1. Fidget toy design & manufacturing</a></li>
-            <li><a href="#traffic" class="btn-magenta" style="display: block; text-align: center;">2. Traffic light design & simulation</a></li>
-            <li><a href="#wrist" class="btn-magenta" style="display: block; text-align: center;">3. Wrist support design & prototype</a></li>
-            <li><a href="#rocketry" class="btn-magenta" style="display: block; text-align: center;">4. AIAA rocketry projects</a></li>
-            <li><a href="#sorting" class="btn-magenta" style="display: block; text-align: center;">5. Automated color sorting machine</a></li>
+            <li><button onclick="switchTab('fidget')" class="btn-magenta" style="width: 100%; text-align: center;">1. Fidget toy design & manufacturing</button></li>
+            <li><button onclick="switchTab('traffic')" class="btn-magenta" style="width: 100%; text-align: center;">2. Traffic light design & simulation</button></li>
+            <li><button onclick="switchTab('wrist')" class="btn-magenta" style="width: 100%; text-align: center;">3. Wrist support design & prototype</button></li>
+            <li><button onclick="switchTab('rocketry')" class="btn-magenta" style="width: 100%; text-align: center;">4. AIAA rocketry projects</button></li>
+            <li><button onclick="switchTab('sorting')" class="btn-magenta" style="width: 100%; text-align: center;">5. Automated color sorting machine</button></li>
         </ul>
     </section>
+
+    <!-- SUB-PAGE: Fidget Toy Design & Manufacturing -->
+    <section id="fidget">
+        <h2 class="section-title">Fidget Toy Design & Manufacturing</h2>
+        <p class="section-desc">Explore the engineering documentation, milestone report, and complete CAD drawing package for the orbit rocket fidget toy.</p>
+        <div class="project-card-container">
+            <div class="sub-card">
+                <h3>Project Deliverable</h3>
+                <p>Access the milestone report detailing background research, initial concepts, and criteria considerations for the project[cite: 1].</p>
+                <a href="project-deliverable.pdf" target="_blank" class="btn-magenta">View Deliverable PDF</a>
+            </div>
+            <div class="sub-card">
+                <h3>Drawing Package</h3>
+                <p>Review the comprehensive manufacturing drawings including the assembly breakdown and ring base specifications[cite: 2, 3].</p>
+                <a href="drawing-package.html" class="btn-magenta">View Drawing Package</a>
+            </div>
+        </div>
+        <div style="margin-top: 40px;">
+            <button onclick="switchTab('projects')" class="btn-magenta" style="background: transparent; border: 1px solid var(--accent-magenta);">← Back to Projects</button>
+        </div>
+    </section>
+
+    <!-- Placeholder pages for other projects -->
+    <section id="traffic"><h2 class="section-title">Traffic Light Design & Simulation</h2><p class="section-desc">Details coming soon.</p><button onclick="switchTab('projects')" class="btn-magenta">← Back to Projects</button></section>
+    <section id="wrist"><h2 class="section-title">Wrist Support Design & Prototype</h2><p class="section-desc">Details coming soon.</p><button onclick="switchTab('projects')" class="btn-magenta">← Back to Projects</button></section>
+    <section id="rocketry"><h2 class="section-title">AIAA Rocketry Projects</h2><p class="section-desc">Details coming soon.</p><button onclick="switchTab('projects')" class="btn-magenta">← Back to Projects</button></section>
+    <section id="sorting"><h2 class="section-title">Automated Color Sorting Machine</h2><p class="section-desc">Details coming soon.</p><button onclick="switchTab('projects')" class="btn-magenta">← Back to Projects</button></section>
 
     <!-- TAB 3: Professional Experience -->
     <section id="experience">
@@ -288,11 +353,19 @@
             const links = document.querySelectorAll('nav a.nav-link');
             links.forEach(link => link.classList.remove('active'));
 
-            document.getElementById(tabId).classList.add('active-section');
+            const targetSection = document.getElementById(tabId);
+            if (targetSection) {
+                targetSection.classList.add('active-section');
+            }
 
-            const activeLink = document.getElementById('link-' + tabId);
-            if (activeLink) {
-                activeLink.classList.add('active');
+            if (tabId === 'fidget' || tabId === 'traffic' || tabId === 'wrist' || tabId === 'rocketry' || tabId === 'sorting') {
+                const projLink = document.getElementById('link-projects');
+                if (projLink) projLink.classList.add('active');
+            } else {
+                const activeLink = document.getElementById('link-' + tabId);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
