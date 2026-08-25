@@ -242,8 +242,8 @@
             line-height: 1.5;
         }
 
-        /* Traffic Project Showcase Layout */
-        .traffic-showcase-container {
+        /* Reusable Project Showcase Layout (Traffic & Wrist) */
+        .showcase-container {
             display: grid;
             grid-template-columns: 1.3fr 1fr;
             gap: 35px;
@@ -253,12 +253,12 @@
         }
 
         @media (max-width: 992px) {
-            .traffic-showcase-container {
+            .showcase-container {
                 grid-template-columns: 1fr;
             }
         }
 
-        .traffic-viewer {
+        .showcase-viewer {
             background: var(--bg-card);
             border: 1px solid rgba(255, 0, 127, 0.3);
             border-radius: 12px;
@@ -266,7 +266,7 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
 
-        .traffic-viewport {
+        .showcase-viewport {
             width: 100%;
             height: 480px;
             background-color: #0b0816;
@@ -278,28 +278,28 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .traffic-viewport img {
+        .showcase-viewport img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             transition: opacity 0.2s ease-in-out;
         }
 
-        .traffic-controls {
+        .showcase-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: 15px;
         }
 
-        .traffic-info-card {
+        .showcase-info-card {
             background: var(--bg-card);
             border: 1px solid rgba(255, 0, 127, 0.2);
             border-radius: 12px;
             padding: 30px;
         }
 
-        .traffic-tag {
+        .showcase-tag {
             display: inline-block;
             padding: 4px 12px;
             background: rgba(255, 0, 127, 0.15);
@@ -311,7 +311,7 @@
             margin-bottom: 12px;
         }
 
-        .traffic-info-card h3 {
+        .showcase-info-card h3 {
             font-size: 1.5rem;
             color: var(--text-light);
             margin-bottom: 15px;
@@ -319,19 +319,19 @@
             padding-bottom: 10px;
         }
 
-        .traffic-info-card p {
+        .showcase-info-card p {
             color: var(--text-gray);
             line-height: 1.6;
             font-size: 0.98rem;
             margin-bottom: 20px;
         }
 
-        .traffic-specs {
+        .showcase-specs {
             list-style: none;
             margin-bottom: 10px;
         }
 
-        .traffic-specs li {
+        .showcase-specs li {
             padding: 8px 0;
             color: var(--text-gray);
             border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
@@ -340,7 +340,7 @@
             font-size: 0.9rem;
         }
 
-        .traffic-specs li strong {
+        .showcase-specs li strong {
             color: var(--text-light);
         }
     </style>
@@ -406,12 +406,12 @@
         <div class="project-card-container">
             <div class="sub-card">
                 <h3>Project Deliverable</h3>
-                <p>Access the milestone report detailing background research, initial concepts, and criteria considerations for the project.</p>
+                <p>Access the milestone report detailing background research, initial concepts, and criteria considerations for the project[cite: 1].</p>
                 <a href="project-deliverable.pdf" target="_blank" class="btn-magenta">View Deliverable PDF</a>
             </div>
             <div class="sub-card">
                 <h3>Drawing Package</h3>
-                <p>Review the comprehensive manufacturing drawings including the assembly breakdown and ring base specifications.</p>
+                <p>Review the comprehensive manufacturing drawings including the assembly breakdown and ring base specifications[cite: 2].</p>
                 <a href="drawing-package.html" class="btn-magenta">View Drawing Package</a>
             </div>
         </div>
@@ -423,16 +423,16 @@
     <!-- SUB-PAGE: Traffic Light Design & Simulation -->
     <section id="traffic">
         <h2 class="section-title">Traffic Light Design & FEA Simulation</h2>
-        <p class="section-desc">CAD assembly, mesh quality diagnostics, and finite element stress and deflection analyses for a commemorative Chicago World's Fair centennial mast-arm assembly.</p>
+        <p class="section-desc">CAD assembly, mesh quality diagnostics, and finite element stress and deflection analyses for a commemorative Chicago World's Fair centennial mast-arm assembly[cite: 1].</p>
 
         <!-- Top Carousel & Details Showcase -->
-        <div class="traffic-showcase-container">
+        <div class="showcase-container">
             <!-- Interactive Carousel Viewer -->
-            <div class="traffic-viewer">
-                <div class="traffic-viewport">
+            <div class="showcase-viewer">
+                <div class="showcase-viewport">
                     <img id="traffic-img" src="A1.png" alt="Traffic Light Project Highlight">
                 </div>
-                <div class="traffic-controls">
+                <div class="showcase-controls">
                     <button class="btn-magenta" onclick="prevTrafficSlide()" style="padding: 8px 18px; font-size: 0.9rem;">‹ Prev</button>
                     <span id="traffic-counter" style="color: var(--text-gray); font-size: 0.95rem; font-weight: 500;">Figure 1 of 7</span>
                     <button class="btn-magenta" onclick="nextTrafficSlide()" style="padding: 8px 18px; font-size: 0.9rem;">Next ›</button>
@@ -440,11 +440,11 @@
             </div>
 
             <!-- Dynamic Information Blurb -->
-            <div class="traffic-info-card">
-                <span id="traffic-tag" class="traffic-tag">Initial Concept</span>
+            <div class="showcase-info-card">
+                <span id="traffic-tag" class="showcase-tag">Initial Concept</span>
                 <h3 id="traffic-title">First Draft Structural CAD Model</h3>
-                <p id="traffic-desc">Original concept model combining a triangular truss mast arm, a hexagonal vertical pole, and non-structural ornamental finials. While aimed at a rustic aesthetic, initial FEA showed excessive deflection and low factor of safety, prompting structural simplification.</p>
-                <ul class="traffic-specs" id="traffic-specs">
+                <p id="traffic-desc">Original concept model combining a triangular truss mast arm, a hexagonal vertical pole, and non-structural ornamental finials[cite: 1]. While aimed at a rustic aesthetic, initial FEA showed excessive deflection and low factor of safety, prompting structural simplification[cite: 1].</p>
+                <ul class="showcase-specs" id="traffic-specs">
                     <li><span>Design Stage:</span> <strong>First Draft (Iteration 1)</strong></li>
                     <li><span>Pole Profile:</span> <strong>Hexagonal Cross-Section</strong></li>
                     <li><span>Arm Architecture:</span> <strong>Triangular Truss Webbing</strong></li>
@@ -456,7 +456,7 @@
         <div style="background: var(--bg-card); padding: 25px 30px; border-radius: 12px; border: 1px solid rgba(255, 0, 127, 0.3); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; max-width: 1200px;">
             <div>
                 <h3 style="color: var(--text-light); margin-bottom: 5px;">Comprehensive Engineering Report</h3>
-                <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Review the complete 18-page technical documentation covering hand calculations, load definitions, boundary conditions, and FEA results.</p>
+                <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Review the complete 18-page technical documentation covering hand calculations, load definitions, boundary conditions, and FEA results[cite: 1].</p>
             </div>
             <a href="traffic-light-report.pdf" target="_blank" class="btn-magenta" style="white-space: nowrap;">View Full 18-Page PDF ↗</a>
         </div>
@@ -466,8 +466,53 @@
         </div>
     </section>
 
+    <!-- SUB-PAGE: Wrist Support Design & Prototype -->
+    <section id="wrist">
+        <h2 class="section-title">Ergonomic Wrist Support: Computer Mouse Analysis & Prototype</h2>
+        <p class="section-desc">Ergonomic risk evaluation, REBA/RULA biomechanical assessments, user surveys, and rapid prototyping for CAD-intensive engineering workstations[cite: 2].</p>
+
+        <!-- Top Carousel & Details Showcase -->
+        <div class="showcase-container">
+            <!-- Interactive Carousel Viewer -->
+            <div class="showcase-viewer">
+                <div class="showcase-viewport">
+                    <img id="wrist-img" src="W1.png" alt="Wrist Support Ergonomics Highlight">
+                </div>
+                <div class="showcase-controls">
+                    <button class="btn-magenta" onclick="prevWristSlide()" style="padding: 8px 18px; font-size: 0.9rem;">‹ Prev</button>
+                    <span id="wrist-counter" style="color: var(--text-gray); font-size: 0.95rem; font-weight: 500;">Slide 1 of 7</span>
+                    <button class="btn-magenta" onclick="nextWristSlide()" style="padding: 8px 18px; font-size: 0.9rem;">Next ›</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Information Blurb -->
+            <div class="showcase-info-card">
+                <span id="wrist-tag" class="showcase-tag">Project Overview</span>
+                <h3 id="wrist-title">Ergonomic Analysis of the Computer Mouse</h3>
+                <p id="wrist-desc">Investigation of musculoskeletal risk factors associated with prolonged computer mouse usage among engineering students and professionals conducting high-duration CAD drafting and analytical computation[cite: 2].</p>
+                <ul class="showcase-specs" id="wrist-specs">
+                    <li><span>Target Area:</span> <strong>Wrist, Fingers & Forearm Posture</strong></li>
+                    <li><span>Core Risk:</span> <strong>Carpal Tunnel & Musculoskeletal Strain</strong></li>
+                    <li><span>Design Goal:</span> <strong>Neutral Joint Alignment</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Full PDF Link Box -->
+        <div style="background: var(--bg-card); padding: 25px 30px; border-radius: 12px; border: 1px solid rgba(255, 0, 127, 0.3); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; max-width: 1200px;">
+            <div>
+                <h3 style="color: var(--text-light); margin-bottom: 5px;">Ergonomic Research Presentation</h3>
+                <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Access the complete slide deck covering user survey data, digital human modeling, REBA/RULA scoring, and rapid prototyping iterations[cite: 2].</p>
+            </div>
+            <a href="wrist-support-presentation.pdf" target="_blank" class="btn-magenta" style="white-space: nowrap;">View Full Presentation PDF ↗</a>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <button onclick="switchTab('projects')" class="btn-magenta" style="background: transparent; border: 1px solid var(--accent-magenta);">← Back to Projects</button>
+        </div>
+    </section>
+
     <!-- Placeholder pages for other projects -->
-    <section id="wrist"><h2 class="section-title">Wrist Support Design & Prototype</h2><p class="section-desc">Details coming soon.</p><button onclick="switchTab('projects')" class="btn-magenta">← Back to Projects</button></section>
     <section id="rocketry"><h2 class="section-title">AIAA Rocketry Projects</h2><p class="section-desc">Details coming soon.</p><button onclick="switchTab('projects')" class="btn-magenta">← Back to Projects</button></section>
     <section id="sorting"><h2 class="section-title">Automated Color Sorting Machine</h2><p class="section-desc">Details coming soon.</p><button onclick="switchTab('projects')" class="btn-magenta">← Back to Projects</button></section>
 
@@ -491,7 +536,7 @@
         </div>
     </section>
 
-    <!-- JavaScript for Tab Switching & Highlight Viewer -->
+    <!-- JavaScript for Tab Switching & Highlight Viewers -->
     <script>
         function switchTab(tabId) {
             const sections = document.querySelectorAll('section');
@@ -518,6 +563,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        /* -------------------------------------------------------------
+           TRAFFIC LIGHT SLIDER DATA
+        ------------------------------------------------------------- */
         const trafficData = [
             {
                 img: "A1.png",
@@ -629,6 +677,122 @@
         function prevTrafficSlide() {
             trafficIndex = (trafficIndex - 1 + trafficData.length) % trafficData.length;
             updateTrafficSlide();
+        }
+
+        /* -------------------------------------------------------------
+           WRIST SUPPORT SLIDER DATA
+        ------------------------------------------------------------- */
+        const wristData = [
+            {
+                img: "W1.png",
+                tag: "Problem Definition",
+                title: "Computer Mouse Biomechanics & Contact",
+                desc: "Analysis of the hand-mouse interface identifying awkward wrist extension, ulnar deviation, and localized nerve compression. Engineering tasks such as continuous CAD drafting exacerbate contact pressure on the carpal tunnel region.",
+                specs: [
+                    { label: "Focus Component", value: "Computer Mouse Interface" },
+                    { label: "Vulnerable Muscles", value: "ED, FDS, FDI & Trapezius" },
+                    { label: "Target Posture", value: "Parallel Tabletop Alignment" }
+                ]
+            },
+            {
+                img: "W2.png",
+                tag: "Research Hypothesis",
+                title: "Workstation Risk Factors & Intervention",
+                desc: "Hypothesis: Incorporating targeted ergonomic wrist support in computer-heavy engineering offices maintains neutral joint posture, minimizing localized contact stress without hindering mouse maneuverability or drafting productivity.",
+                specs: [
+                    { label: "Condition Addressed", value: "Carpal Tunnel Syndrome" },
+                    { label: "Core Mechanism", value: "Contact Stress Mitigation" },
+                    { label: "Work Profile", value: "40+ hr/wk CAD & Computing" }
+                ]
+            },
+            {
+                img: "W3.png",
+                tag: "Empirical Survey",
+                title: "UIC Engineering Student Survey Findings",
+                desc: "Survey of 31 UIC engineering students revealed that >70% use a mouse for 1+ hours daily, a significant majority experience recurring wrist pain, and 96.8% believe ergonomic workspace design should be an urgent priority.",
+                specs: [
+                    { label: "Sample Size", value: "31 UIC Engineering Students" },
+                    { label: "Daily Mouse Use (>1 hr)", value: "74.2% of Respondents" },
+                    { label: "Priority for Ergonomics", value: "96.8% in Agreement" }
+                ]
+            },
+            {
+                img: "W4.png",
+                tag: "Ergonomic Scoring",
+                title: "REBA Employee Assessment Worksheet",
+                desc: "Rapid Entire Body Assessment (REBA) evaluation yielding a Neck Score of 2, Trunk Score of 2, Upper Arm Score of 2, Lower Arm Score of 1, and Wrist Score of 1+1, culminating in a Table C Final Score of 6 (Medium Risk).",
+                specs: [
+                    { label: "Final REBA Score", value: "6 (Medium Risk Level)" },
+                    { label: "Recommended Action", value: "Further Investigation & Change Soon" },
+                    { label: "Activity Score Addition", value: "+1 (Static Posture >1 min)" }
+                ]
+            },
+            {
+                img: "W5.png",
+                tag: "Digital Human Modeling",
+                title: "SANTOS Simulation & Posture Kinematics",
+                desc: "Biomechanical computer modeling inside SANTOS simulating seated desk posture. RULA scoring (Score 3-4, Action Level 2) and REBA findings confirmed that wrist extension required physical support geometry.",
+                specs: [
+                    { label: "Modeling Platform", value: "SANTOS Human Simulation" },
+                    { label: "RULA Action Level", value: "Level 2 (Score 3-4)" },
+                    { label: "Posture Constraint", value: "Forearm/Wrist Leveling" }
+                ]
+            },
+            {
+                img: "W6.png",
+                tag: "Rapid Prototyping",
+                title: "3D Printed Prototype & Material Selection",
+                desc: "Iterative physical prototype featuring a 3D-printed PLA baseplate, soft high-density cushioning foam on top to prevent skin irritation, and smooth low-friction bottom glider bumpers for effortless gliding on tabletops.",
+                specs: [
+                    { label: "Base Structure", value: "3D Printed PLA Plastic" },
+                    { label: "Top Contact Layer", value: "High-Density Foam Cushion" },
+                    { label: "Bottom Interface", value: "Low-Friction Glider Pads" }
+                ]
+            },
+            {
+                img: "W7.png",
+                tag: "Implementation & ADA",
+                title: "Workstation Integration & ADA Compliance",
+                desc: "Rollout strategy for enterprise cubicles and engineering workstations. The low-cost wrist accessory enhances accessibility under ADA principles for workers managing joint mobility limitations or thoracic outlet discomfort.",
+                specs: [
+                    { label: "Deployment Target", value: "Engineering Office Cubicles" },
+                    { label: "ADA Benefit", value: "Assists Limited Joint Mobility" },
+                    { label: "Cost Profile", value: "Low-Cost Additive Manufacturing" }
+                ]
+            }
+        ];
+
+        let wristIndex = 0;
+
+        function updateWristSlide() {
+            const data = wristData[wristIndex];
+            const imgEl = document.getElementById('wrist-img');
+
+            imgEl.style.opacity = 0;
+            setTimeout(() => {
+                imgEl.src = data.img;
+                imgEl.style.opacity = 1;
+            }, 150);
+
+            document.getElementById('wrist-tag').textContent = data.tag;
+            document.getElementById('wrist-title').textContent = data.title;
+            document.getElementById('wrist-desc').textContent = data.desc;
+            document.getElementById('wrist-counter').textContent = `Slide ${wristIndex + 1} of ${wristData.length}`;
+
+            const specsList = document.getElementById('wrist-specs');
+            specsList.innerHTML = data.specs.map(s => 
+                `<li><span>${s.label}:</span> <strong>${s.value}</strong></li>`
+            ).join('');
+        }
+
+        function nextWristSlide() {
+            wristIndex = (wristIndex + 1) % wristData.length;
+            updateWristSlide();
+        }
+
+        function prevWristSlide() {
+            wristIndex = (wristIndex - 1 + wristData.length) % wristData.length;
+            updateWristSlide();
         }
     </script>
 </body>
