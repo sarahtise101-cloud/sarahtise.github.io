@@ -8,41 +8,286 @@
         :root {
             --bg-dark: #0f0b1e;
             --bg-card: #1a1429;
+            --primary-purple: #3d1b5c;
             --accent-pink: #e60073;
             --accent-magenta: #ff007f;
             --text-light: #f1f1f1;
             --text-gray: #b8b5c9;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); padding: 60px 10%; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; border-left: 5px solid var(--accent-magenta); padding-left: 15px; }
-        p { color: var(--text-gray); margin-bottom: 40px; font-size: 1.1rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 900px; }
-        .card { background: var(--bg-card); border: 1px solid rgba(255, 0, 127, 0.3); border-radius: 12px; padding: 30px; }
-        .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
-        .btn { display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, var(--accent-pink), var(--accent-magenta)); color: white; text-decoration: none; font-weight: bold; border-radius: 30px; margin-top: 15px; }
-        .back { display: inline-block; margin-top: 40px; color: var(--accent-magenta); text-decoration: none; font-weight: bold; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 60px 8%;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--accent-magenta);
+            padding-left: 15px;
+        }
+
+        .subtitle {
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Two-Column Layout: Viewer on Left, Supporting Notes on Right */
+        .showcase-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+            align-items: start;
+            max-width: 1300px;
+        }
+
+        @media (max-width: 992px) {
+            .showcase-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Drawing Viewer Box */
+        .viewer-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .viewport-box {
+            width: 100%;
+            height: 480px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .viewport-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: opacity 0.25s ease-in-out;
+        }
+
+        /* Viewer Controls */
+        .viewer-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 0 5px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-magenta));
+            border: none;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.5);
+        }
+
+        .sheet-counter {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Supportive Details Panel */
+        .details-panel {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .details-panel h2 {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 0, 127, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .details-panel p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .specs-list li {
+            padding: 8px 0;
+            color: var(--text-gray);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .specs-list li strong {
+            color: var(--text-light);
+        }
+
+        .btn-raw {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--accent-magenta);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-raw:hover {
+            background: var(--primary-purple);
+            color: var(--accent-magenta);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: var(--accent-magenta);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+
     <h1>Drawing Package</h1>
-    <p>SolidWorks manufacturing and assembly drawings for the rocket orbit fidget project.</p>
-    
-    <div class="grid">
-        <div class="card">
-            <h3>Assembly Drawing</h3>
-            <p>Full component breakdown and bill of materials (BOM) for the orbit assembly.</p>
-            <a href="rocket-orbit-assem.pdf" target="_blank" class="btn">Open Assembly PDF</a>
+    <p class="subtitle">SolidWorks manufacturing and assembly drawings for the rocket orbit fidget project.</p>
+
+    <div class="showcase-layout">
+        <div class="viewer-container">
+            <div class="viewport-box">
+                <img id="drawing-view" src="rocket-orbit-assem.png" alt="Drawing Sheet">
+            </div>
+            
+            <div class="viewer-controls">
+                <button class="nav-btn" onclick="prevDrawing()">‹ Prev Sheet</button>
+                <span id="sheet-indicator" class="sheet-counter">Sheet 1 of 2</span>
+                <button class="nav-btn" onclick="nextDrawing()">Next Sheet ›</button>
+            </div>
         </div>
-        <div class="card">
-            <h3>Ring Base Drawing</h3>
-            <p>Detailed dimensional drafting and tolerance notes for the 3D printed ring base.</p>
-            <a href="rocket-ring-base.pdf" target="_blank" class="btn">Open Ring Base PDF</a>
+
+        <div class="details-panel">
+            <h2 id="sheet-title">Assembly & Bill of Materials</h2>
+            <p id="sheet-desc">
+                Exploded assembly layout illustrating captured swivel interfaces, track tolerances, and hardware specifications for 3D printing and hardware fitment.
+            </p>
+
+            <ul class="specs-list" id="sheet-specs">
+                <li><span>Drafting Standard:</span> <strong>ANSI / ASME Y14.5</strong></li>
+                <li><span>Primary Process:</span> <strong>FDM Additive</strong></li>
+                <li><span>Critical Tolerance:</span> <strong>±0.15 mm</strong></li>
+            </ul>
+
+            <a id="download-btn" href="rocket-orbit-assem.pdf" target="_blank" class="btn-raw">Open Full-Res PDF ↗</a>
         </div>
     </div>
 
     <div>
-        <a href="index.html" class="back">← Back to Portfolio</a>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
     </div>
+
+    <script>
+        // Array of drawings with corresponding titles, descriptions, and metadata
+        const drawings = [
+            {
+                img: "rocket-orbit-assem.png",
+                pdf: "rocket-orbit-assem.pdf",
+                title: "Assembly & Bill of Materials",
+                desc: "Exploded assembly layout illustrating captured swivel interfaces, track tolerances, and hardware specifications for additive manufacturing.",
+                specs: [
+                    { label: "Drafting Standard", value: "ANSI / ASME Y14.5" },
+                    { label: "Primary Process", value: "FDM Additive" },
+                    { label: "Critical Tolerance", value: "±0.15 mm" }
+                ]
+            },
+            {
+                img: "rocket-ring-base.png",
+                pdf: "rocket-ring-base.pdf",
+                title: "Ring Base Component Specification",
+                desc: "Detailed dimensional drafting of the inner orbital ring, featuring clearance geometry for captured sliders and smooth tactile operation.",
+                specs: [
+                    { label: "Part Material", value: "PLA / PETG" },
+                    { label: "Layer Resolution", value: "0.16 mm" },
+                    { label: "Infill Density", value: "40% Gyroid" }
+                ]
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateViewer() {
+            const current = drawings[currentIndex];
+            const imgElement = document.getElementById('drawing-view');
+
+            // Fade effect
+            imgElement.style.opacity = 0;
+            setTimeout(() => {
+                imgElement.src = current.img;
+                imgElement.style.opacity = 1;
+            }, 150);
+
+            // Update Text, Specs, and Links
+            document.getElementById('sheet-title').textContent = current.title;
+            document.getElementById('sheet-desc').textContent = current.desc;
+            document.getElementById('download-btn').href = current.pdf;
+            document.getElementById('sheet-indicator').textContent = `Sheet ${currentIndex + 1} of ${drawings.length}`;
+
+            // Render Specs
+            const specsList = document.getElementById('sheet-specs');
+            specsList.innerHTML = current.specs.map(item => 
+                `<li><span>${item.label}:</span> <strong>${item.value}</strong></li>`
+            ).join('');
+        }
+
+        function nextDrawing() {
+            currentIndex = (currentIndex + 1) % drawings.length;
+            updateViewer();
+        }
+
+        function prevDrawing() {
+            currentIndex = (currentIndex - 1 + drawings.length) % drawings.length;
+            updateViewer();
+        }
+    </script>
 </body>
 </html>
