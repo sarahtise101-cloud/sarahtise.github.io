@@ -480,7 +480,7 @@
                 </div>
                 <div class="showcase-controls">
                     <button class="btn-magenta" onclick="prevWristSlide()" style="padding: 8px 18px; font-size: 0.9rem;">‹ Prev</button>
-                    <span id="wrist-counter" style="color: var(--text-gray); font-size: 0.95rem; font-weight: 500;">Slide 1 of 7</span>
+                    <span id="wrist-counter" style="color: var(--text-gray); font-size: 0.95rem; font-weight: 500;">Slide 1 of 6</span>
                     <button class="btn-magenta" onclick="nextWristSlide()" style="padding: 8px 18px; font-size: 0.9rem;">Next ›</button>
                 </div>
             </div>
@@ -488,12 +488,12 @@
             <!-- Dynamic Information Blurb -->
             <div class="showcase-info-card">
                 <span id="wrist-tag" class="showcase-tag">Project Overview</span>
-                <h3 id="wrist-title">Ergonomic Analysis of the Computer Mouse</h3>
-                <p id="wrist-desc">Investigation of musculoskeletal risk factors associated with prolonged computer mouse usage among engineering students and professionals conducting high-duration CAD drafting and analytical computation[cite: 2].</p>
+                <h3 id="wrist-title">Ergonomic Design: Computer Mouse Analysis</h3>
+                <p id="wrist-desc">Investigation into computer-related musculoskeletal risk factors focusing on the computer mouse—a critical yet ergonomically taxing tool for CAD drafting and intensive computing[cite: 2].</p>
                 <ul class="showcase-specs" id="wrist-specs">
-                    <li><span>Target Area:</span> <strong>Wrist, Fingers & Forearm Posture</strong></li>
-                    <li><span>Core Risk:</span> <strong>Carpal Tunnel & Musculoskeletal Strain</strong></li>
-                    <li><span>Design Goal:</span> <strong>Neutral Joint Alignment</strong></li>
+                    <li><span>Author:</span> <strong>Sarah Tise</strong></li>
+                    <li><span>Primary Focus:</span> <strong>Computer Mouse & Wrist Biomechanics</strong></li>
+                    <li><span>Target Workstation:</span> <strong>CAD & Engineering Office Setups</strong></li>
                 </ul>
             </div>
         </div>
@@ -680,84 +680,73 @@
         }
 
         /* -------------------------------------------------------------
-           WRIST SUPPORT SLIDER DATA
+           WRIST SUPPORT SLIDER DATA (EXACT 6 SLIDES)
         ------------------------------------------------------------- */
         const wristData = [
             {
                 img: "W1.png",
-                tag: "Problem Definition",
-                title: "Computer Mouse Biomechanics & Contact",
-                desc: "Analysis of the hand-mouse interface identifying awkward wrist extension, ulnar deviation, and localized nerve compression. Engineering tasks such as continuous CAD drafting exacerbate contact pressure on the carpal tunnel region.",
+                tag: "Project Title",
+                title: "Ergonomic Design: Computer Mouse Analysis",
+                desc: "Investigation into computer-related musculoskeletal risk factors focusing on the computer mouse—a critical yet ergonomically taxing tool for CAD drafting and intensive computing.",
                 specs: [
-                    { label: "Focus Component", value: "Computer Mouse Interface" },
-                    { label: "Vulnerable Muscles", value: "ED, FDS, FDI & Trapezius" },
-                    { label: "Target Posture", value: "Parallel Tabletop Alignment" }
+                    { label: "Author", value: "Sarah Tise" },
+                    { label: "Primary Focus", value: "Computer Mouse Ergonomics" },
+                    { label: "Target Application", value: "Engineering Workstations" }
                 ]
             },
             {
                 img: "W2.png",
-                tag: "Research Hypothesis",
-                title: "Workstation Risk Factors & Intervention",
-                desc: "Hypothesis: Incorporating targeted ergonomic wrist support in computer-heavy engineering offices maintains neutral joint posture, minimizing localized contact stress without hindering mouse maneuverability or drafting productivity.",
+                tag: "Core Hypothesis",
+                title: "Research Hypothesis & Ergonomic Risk",
+                desc: "Computer-heavy engineering tasks like CAD drafting place workers at elevated risk for musculoskeletal disorders. Implementing targeted interventions such as wrist supports and adjustable workstations can significantly mitigate carpal tunnel risk without hindering productivity.",
                 specs: [
-                    { label: "Condition Addressed", value: "Carpal Tunnel Syndrome" },
-                    { label: "Core Mechanism", value: "Contact Stress Mitigation" },
-                    { label: "Work Profile", value: "40+ hr/wk CAD & Computing" }
+                    { label: "Risk Factor", value: "Prolonged Computer Tasks" },
+                    { label: "Target Condition", value: "Carpal Tunnel Syndrome" },
+                    { label: "Intervention", value: "Wrist Support & Neutral Posture" }
                 ]
             },
             {
                 img: "W3.png",
-                tag: "Empirical Survey",
-                title: "UIC Engineering Student Survey Findings",
-                desc: "Survey of 31 UIC engineering students revealed that >70% use a mouse for 1+ hours daily, a significant majority experience recurring wrist pain, and 96.8% believe ergonomic workspace design should be an urgent priority.",
+                tag: "Design Methodology",
+                title: "Ergonomic Principles & Task Evaluation",
+                desc: "Four-step methodology: (1) Review tasks and collect student discomfort data, (2) Control risk factors via physical support prototypes, (3) Evaluate essential workstation components, and (4) Apply ergonomic principles including minimal contact stress, adjustability, and neutral alignment.",
                 specs: [
-                    { label: "Sample Size", value: "31 UIC Engineering Students" },
+                    { label: "Core Principle", value: "Minimal Contact Stress" },
+                    { label: "Design Target", value: "Neutral Wrist Position" },
+                    { label: "User Diversity", value: "Adjustable for Varied Users" }
+                ]
+            },
+            {
+                img: "W4.png",
+                tag: "Empirical Survey",
+                title: "UIC Engineering Student Survey Data",
+                desc: "Survey of 31 UIC engineering students revealed that 74.2% use a computer mouse for 1+ hours daily, a significant proportion experience wrist pain from prolonged mouse use, and 96.8% believe ergonomic workspace design should be a top priority.",
+                specs: [
+                    { label: "Survey Sample", value: "31 UIC Engineering Students" },
                     { label: "Daily Mouse Use (>1 hr)", value: "74.2% of Respondents" },
                     { label: "Priority for Ergonomics", value: "96.8% in Agreement" }
                 ]
             },
             {
-                img: "W4.png",
-                tag: "Ergonomic Scoring",
+                img: "W5.jpg",
+                tag: "REBA Assessment",
                 title: "REBA Employee Assessment Worksheet",
-                desc: "Rapid Entire Body Assessment (REBA) evaluation yielding a Neck Score of 2, Trunk Score of 2, Upper Arm Score of 2, Lower Arm Score of 1, and Wrist Score of 1+1, culminating in a Table C Final Score of 6 (Medium Risk).",
+                desc: "Detailed Rapid Entire Body Assessment (REBA) evaluation for seated computer mouse operation. Analysis yielded a Table A score of 3, Table B score of 1, Coupling score of +1, and Activity score of +3, producing a Table C Final Score of 6 (Medium Risk).",
                 specs: [
                     { label: "Final REBA Score", value: "6 (Medium Risk Level)" },
-                    { label: "Recommended Action", value: "Further Investigation & Change Soon" },
-                    { label: "Activity Score Addition", value: "+1 (Static Posture >1 min)" }
-                ]
-            },
-            {
-                img: "W5.png",
-                tag: "Digital Human Modeling",
-                title: "SANTOS Simulation & Posture Kinematics",
-                desc: "Biomechanical computer modeling inside SANTOS simulating seated desk posture. RULA scoring (Score 3-4, Action Level 2) and REBA findings confirmed that wrist extension required physical support geometry.",
-                specs: [
-                    { label: "Modeling Platform", value: "SANTOS Human Simulation" },
-                    { label: "RULA Action Level", value: "Level 2 (Score 3-4)" },
-                    { label: "Posture Constraint", value: "Forearm/Wrist Leveling" }
+                    { label: "Neck & Trunk Scores", value: "+2 Neck, +2 Trunk" },
+                    { label: "Action Mandate", value: "Further Investigation / Change Soon" }
                 ]
             },
             {
                 img: "W6.png",
-                tag: "Rapid Prototyping",
-                title: "3D Printed Prototype & Material Selection",
-                desc: "Iterative physical prototype featuring a 3D-printed PLA baseplate, soft high-density cushioning foam on top to prevent skin irritation, and smooth low-friction bottom glider bumpers for effortless gliding on tabletops.",
+                tag: "Assessment Findings",
+                title: "REBA / RULA Findings & SANTOS Model",
+                desc: "Biomechanical simulation results: RULA analysis placed the posture at Action Level 2 (Score 3-4, investigate further), while REBA scored medium risk (Score 6). The SANTOS digital human model demonstrates that physical wrist support is necessary to maintain neutral joint elevation.",
                 specs: [
-                    { label: "Base Structure", value: "3D Printed PLA Plastic" },
-                    { label: "Top Contact Layer", value: "High-Density Foam Cushion" },
-                    { label: "Bottom Interface", value: "Low-Friction Glider Pads" }
-                ]
-            },
-            {
-                img: "W7.png",
-                tag: "Implementation & ADA",
-                title: "Workstation Integration & ADA Compliance",
-                desc: "Rollout strategy for enterprise cubicles and engineering workstations. The low-cost wrist accessory enhances accessibility under ADA principles for workers managing joint mobility limitations or thoracic outlet discomfort.",
-                specs: [
-                    { label: "Deployment Target", value: "Engineering Office Cubicles" },
-                    { label: "ADA Benefit", value: "Assists Limited Joint Mobility" },
-                    { label: "Cost Profile", value: "Low-Cost Additive Manufacturing" }
+                    { label: "RULA Result", value: "Action Level 2 (Score 3-4)" },
+                    { label: "REBA Result", value: "Medium Risk (Score 4-7 / Final 6)" },
+                    { label: "Simulation Platform", value: "SANTOS Digital Human Modeling" }
                 ]
             }
         ];
