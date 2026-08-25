@@ -423,7 +423,7 @@
     <!-- SUB-PAGE: Traffic Light Design & Simulation -->
     <section id="traffic">
         <h2 class="section-title">Traffic Light Design & FEA Simulation</h2>
-        <p class="section-desc">CAD assembly, mesh quality diagnostics, and finite element stress and deflection analyses for an urban structural mast-arm assembly.</p>
+        <p class="section-desc">CAD assembly, mesh quality diagnostics, and finite element stress and deflection analyses for a commemorative Chicago World's Fair centennial mast-arm assembly.</p>
 
         <!-- Top Carousel & Details Showcase -->
         <div class="traffic-showcase-container">
@@ -443,11 +443,11 @@
             <div class="traffic-info-card">
                 <span id="traffic-tag" class="traffic-tag">Initial Concept</span>
                 <h3 id="traffic-title">First Draft Structural CAD Model</h3>
-                <p id="traffic-desc">Initial 3D SolidWorks concept model showcasing the early mast arm geometry, integrated truss webbing, decorative finials, signage placement, and aerodynamic end fairing prior to subsequent design refinements and FEA boundary setup.</p>
+                <p id="traffic-desc">Original concept model combining a triangular truss mast arm, a hexagonal vertical pole, and non-structural ornamental finials. While aimed at a rustic aesthetic, initial FEA showed excessive deflection and low factor of safety, prompting structural simplification.</p>
                 <ul class="traffic-specs" id="traffic-specs">
-                    <li><span>Design Stage:</span> <strong>First Draft Concept</strong></li>
-                    <li><span>Primary Software:</span> <strong>SOLIDWORKS 3D CAD</strong></li>
-                    <li><span>Structure Type:</span> <strong>Cantilevered Mast Arm</strong></li>
+                    <li><span>Design Stage:</span> <strong>First Draft (Iteration 1)</strong></li>
+                    <li><span>Pole Profile:</span> <strong>Hexagonal Cross-Section</strong></li>
+                    <li><span>Arm Architecture:</span> <strong>Triangular Truss Webbing</strong></li>
                 </ul>
             </div>
         </div>
@@ -523,72 +523,77 @@
                 img: "A1.png",
                 tag: "Initial Concept",
                 title: "First Draft Structural CAD Model",
-                desc: "Initial 3D SolidWorks concept model showcasing the early mast arm geometry, integrated truss webbing, decorative finials, signage placement, and aerodynamic end fairing prior to subsequent design refinements and FEA boundary setup.",
+                desc: "Original concept model combining a triangular truss mast arm, a hexagonal vertical pole, and non-structural ornamental finials. While aimed at a rustic aesthetic, initial FEA showed excessive deflection and low factor of safety, prompting structural simplification.",
                 specs: [
-                    { label: "Design Stage", value: "First Draft Concept" },
-                    { label: "Primary Software", value: "SOLIDWORKS 3D CAD" },
-                    { label: "Structure Type", value: "Cantilevered Mast Arm" }
+                    { label: "Design Stage", value: "First Draft (Iteration 1)" },
+                    { label: "Pole Profile", value: "Hexagonal Cross-Section" },
+                    { label: "Arm Architecture", value: "Triangular Truss Webbing" }
                 ]
             },
             {
                 img: "A2.png",
                 tag: "Mesh Diagnostics",
                 title: "Tet10 Element Quality Distribution",
-                desc: "ANSYS mesh metric histogram evaluating 10-node tetrahedral solid elements. The majority of elements maintain high metric quality scores between 0.62 and 0.88 to ensure convergence stability.",
+                desc: "ANSYS Mechanical mesh metric histogram evaluating solid elements. Despite operating under the node/element limit of the student license, the metrics remain right-leaning (skewness/orthogonal quality peak ~7,095 elements), ensuring stable numerical convergence.",
                 specs: [
-                    { label: "Element Type", value: "Tet10 (Higher Order 3D)" },
-                    { label: "Peak Element Count", value: "~7,095 Elements" }
+                    { label: "Total Nodes", value: "60,814 Nodes" },
+                    { label: "Total Elements", value: "36,169 Elements" },
+                    { label: "Sizing Method", value: "Adaptive (Resolution 3)" }
                 ]
             },
             {
                 img: "A3.png",
                 tag: "FEA Simulation",
-                title: "Total Cantilever Deformation",
-                desc: "Static structural total deformation analysis displaying maximum displacement concentrated at the cantilever tip under combined dead weight, signage, and environmental loads.",
+                title: "Static Total Deformation",
+                desc: "Total displacement under combined dead weight (60 lb per signal, 5 lb per sign), ice accretion, and 95.3 mph dynamic wind load. The maximum tip deflection of 0.0647 m (64.72 mm) satisfies the project limit of 0.067 m (L/100).",
                 specs: [
-                    { label: "Max Displacement", value: "0.0647 m (64.7 mm)" },
-                    { label: "Min Displacement", value: "0.000 m (Fixed Base)" }
+                    { label: "Max Tip Deflection", value: "0.0647 m (64.72 mm)" },
+                    { label: "Allowable Deflection Cap", value: "0.067 m (L / 100)" },
+                    { label: "Base Support", value: "Fixed Boundary (0 mm)" }
                 ]
             },
             {
                 img: "A4.png",
                 tag: "FEA Simulation",
-                title: "Von-Mises Equivalent Stress",
-                desc: "Equivalent stress contour map identifying peak localized stress concentrations along the upper pole connection bracket and truss gussets.",
+                title: "Equivalent (Von-Mises) Stress",
+                desc: "Equivalent stress contour map for the structural steel assembly subjected to 1,151 Pa dynamic wind pressure. Peak stress reaches 69.88 MPa at the pole-to-arm upper gusset junction, remaining well below the steel yield strength.",
                 specs: [
                     { label: "Max Stress", value: "6.988e7 Pa (69.88 MPa)" },
-                    { label: "Min Stress", value: "645.24 Pa" }
+                    { label: "Min Stress", value: "645.24 Pa" },
+                    { label: "Dynamic Wind Pressure", value: "1,151 Pa (v = 95.3 mph)" }
                 ]
             },
             {
                 img: "A5.png",
                 tag: "Structural Validation",
-                title: "Safety Factor Distribution",
-                desc: "Verification of structural integrity across the frame. The minimum calculated factor of safety comfortably satisfies design criteria without structural failure.",
+                title: "Factor of Safety Distribution",
+                desc: "Stress tool validation confirming full structural integrity across the frame. The minimum calculated factor of safety is 3.58 located at the joint bracket, comfortably exceeding the project mandate of FOS >= 2.0.",
                 specs: [
-                    { label: "Min Safety Factor", value: "3.58" },
-                    { label: "Max Safety Factor", value: "15.00" }
+                    { label: "Minimum Safety Factor", value: "3.58 (Passes FOS >= 2.0)" },
+                    { label: "Maximum Safety Factor", value: "15.00" },
+                    { label: "Frame Material", value: "Structural Steel" }
                 ]
             },
             {
                 img: "A6.png",
-                tag: "CAD Layout",
-                title: "Signage & Signal Head Positioning",
-                desc: "Front elevation layout showing signal array orientation, regulatory signage, and horizontal truss mount geometry sized for multi-lane intersection visibility.",
+                tag: "Final Concept",
+                title: "CUBE Architecture & Signage Layout",
+                desc: "Final SolidWorks assembly featuring a simplified square 'cube' profile inspired by the 1933 Chicago World's Fair centennial. Hanging masses were condensed inboard to optimize load distribution, paired with legal warning signage against climbing.",
                 specs: [
-                    { label: "Frame Material", value: "Structural Steel" },
-                    { label: "Signal Configuration", value: "Multi-head Traffic Array" }
+                    { label: "Signal Setup", value: "Horizontal + Vertical Heads" },
+                    { label: "Aesthetic Feature", value: "Commemorative World's Fair Cube" },
+                    { label: "Climber Deterrent", value: "Regulatory Prosecution Signage" }
                 ]
             },
             {
                 img: "A7.png",
-                tag: "Drafting & Drawings",
-                title: "Dimensional Drafting Package",
-                desc: "Detailed manufacturing drawing noting primary structural dimensions (24.28' total height, 20.00' mast span, 18.14' vertical clearance) and steel frame specifications.",
+                tag: "Manufacturing Drafting",
+                title: "Final Engineering Drawing Package",
+                desc: "ANSI-standard drafting package detailing structural dimensions: 24.28 ft total vertical height, 20.00 ft mast span covering a 26 ft roadway, 18.14 ft lower clearance, and an estimated total steel material cost of $7,740.71.",
                 specs: [
-                    { label: "Total Height", value: "24.28 ft" },
-                    { label: "Mast Span", value: "20.00 ft" },
-                    { label: "Frame Material", value: "Steel" }
+                    { label: "Total Height / Span", value: "24.28 ft / 20.00 ft" },
+                    { label: "Total Mass", value: "2,145.17 kg" },
+                    { label: "Total Material Cost", value: "$7,740.71 ($3.61/kg)" }
                 ]
             }
         ];
