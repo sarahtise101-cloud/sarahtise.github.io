@@ -881,16 +881,28 @@
 
         let rocketryIndex = 0;
 
-        function updateRocketrySlide() {
+       function updateRocketrySlide() {
             const data = rocketryData[rocketryIndex];
             const vidEl = document.getElementById('rocketry-vid');
 
             vidEl.style.opacity = 0;
             setTimeout(() => {
                 vidEl.src = data.vid;
-                vidEl.play(); // Ensures the newly loaded video begins playing immediately
+                vidEl.load(); // <-- This forces the browser to load the new video file
+                vidEl.play().catch(e => console.log("Video play error:", e)); // Plays and prevents errors
                 vidEl.style.opacity = 1;
             }, 150);
+
+            document.getElementById('rocketry-tag').textContent = data.tag;
+            document.getElementById('rocketry-title').textContent = data.title;
+            document.getElementById('rocketry-desc').textContent = data.desc;
+            document.getElementById('rocketry-counter').textContent = `Video ${rocketryIndex + 1} of ${rocketryData.length}`;
+
+            const specsList = document.getElementById('rocketry-specs');
+            specsList.innerHTML = data.specs.map(s => 
+                `<li><span>${s.label}:</span> <strong>${s.value}</strong></li>`
+            ).join('');
+        }, 150);
 
             document.getElementById('rocketry-tag').textContent = data.tag;
             document.getElementById('rocketry-title').textContent = data.title;
