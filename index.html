@@ -577,7 +577,7 @@
                 <h3 style="color: var(--text-light); margin-bottom: 5px;">ME 250 Project 2 Technical Memorandum</h3>
                 <p style="color: var(--text-gray); margin: 0; font-size: 0.95rem;">Review the complete technical report detailing problem definition, functional analysis, morphological charts, concept selection, and bill of materials.</p>
             </div>
-            <a href="ME 250 Project 2 Tech Memo Submission.docx.pdf" target="_blank" class="btn-magenta" style="white-space: nowrap;">View Technical Memo PDF ↗</a>
+            <a href="ME 250 Project 2 Tech Memo Submission.docx.pdf" target="_blank" class="btn-magenta" style="white-space: nowrap;">View Full 18-Page PDF ↗</a>
         </div>
 
         <div style="margin-top: 40px; max-width: 1100px; margin-left: auto; margin-right: auto;">
@@ -778,7 +778,7 @@
                 img: "A6.png",
                 tag: "Final Concept",
                 title: "CUBE Architecture & Signage Layout",
-                desc: "Final SolidWorks assembly featuring a simplified square 'cube' profile inspired by the 1933 Chicago World's Fair centennial. Hanging masses were condensed inboard to optimize load distribution, paired with legal warning signage against climbing.",
+                desc: "Final SolidWorks assembly featuring a simplified square 'cube' profile inspired by the 1933 Chicago World's Fair centennial. Hanging masses were condensed inboard to optimize load distribution, paired with legal warning signage against climbing. Note the humorous signage was added for extra credit.",
                 specs: [
                     { label: "Signal Setup", value: "Horizontal + Vertical Heads" },
                     { label: "Aesthetic Feature", value: "Commemorative World's Fair Cube" },
@@ -894,7 +894,7 @@
                 img: "W6.png",
                 tag: "Assessment Findings",
                 title: "REBA / RULA Findings & SANTOS Model",
-                desc: "Biomechanic simulation results: RULA analysis placed the posture at Action Level 2 (Score 3-4, investigate further), while REBA scored medium risk (Score 6). The SANTOS digital human model demonstrates that physical wrist support is necessary to maintain neutral joint elevation.",
+                desc: "Biomechanical simulation results: RULA analysis placed the posture at Action Level 2 (Score 3-4, investigate further), while REBA scored medium risk (Score 6). The SANTOS digital human model demonstrates that physical wrist support is necessary to maintain neutral joint elevation.",
                 specs: [
                     { label: "RULA Result", value: "Action Level 2 (Score 3-4)" },
                     { label: "REBA Result", value: "Medium Risk (Score 4-7 / Final 6)" },
@@ -926,12 +926,12 @@
             ).join('');
         }
 
-        function nextWristSlide() {
+        let nextWristSlide = function() {
             wristIndex = (wristIndex + 1) % wristData.length;
             updateWristSlide();
         }
 
-        function prevWristSlide() {
+        let prevWristSlide = function() {
             wristIndex = (wristIndex - 1 + wristData.length) % wristData.length;
             updateWristSlide();
         }
