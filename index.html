@@ -242,7 +242,7 @@
             line-height: 1.5;
         }
 
-        /* Reusable Project Showcase Layout (Traffic & Wrist) */
+        /* Reusable Project Showcase Layout (Traffic, Wrist, Rocketry Videos) */
         .showcase-container {
             display: grid;
             grid-template-columns: 1.3fr 1fr;
@@ -278,7 +278,8 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .showcase-viewport img {
+        /* Added video tag support for the new carousel */
+        .showcase-viewport img, .showcase-viewport video {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
@@ -503,21 +504,41 @@
         <p class="section-desc">Explore the technical documentation, design methodologies, and team onboarding processes for the NASA USLI competition and mid-power rocketry builds.</p>
         
         <div style="display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%; max-width: 1100px; margin: 20px auto 0 auto;">
-            
             <div style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(45, 33, 85, 0.8);">
                 <img src="R1.PNG" alt="NASA USLI Competition 2025-2026" style="width: 100%; height: auto; display: block; transform: scale(1.02);">
             </div>
-            
             <div style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(45, 33, 85, 0.8);">
                 <img src="R2.PNG" alt="AIAA New Team Member Onboarding" style="width: 100%; height: auto; display: block; transform: scale(1.02);">
             </div>
-            
-            <div style="background: var(--bg-card); padding: 25px 30px; border-radius: 12px; border-left: 5px solid var(--accent-magenta); width: 100%; text-align: left; box-sizing: border-box; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);">
-                <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.6; margin: 0;">
-                    If you would like access to the technical documentation, design files, or more details in general, please feel free to contact me at <a href="mailto:sarahtise101@gmail.com" style="color: var(--accent-magenta); text-decoration: none; font-weight: bold;">sarahtise101@gmail.com</a>!
-                </p>
+        </div>
+
+        <div class="showcase-container" style="margin-top: 60px;">
+            <div class="showcase-viewer">
+                <div class="showcase-viewport">
+                    <video id="rocketry-vid" src="m1.mp4" autoplay muted loop playsinline></video>
+                </div>
+                <div class="showcase-controls">
+                    <button class="btn-magenta" onclick="prevRocketrySlide()" style="padding: 8px 18px; font-size: 0.9rem;">‹ Prev</button>
+                    <span id="rocketry-counter" style="color: var(--text-gray); font-size: 0.95rem; font-weight: 500;">Video 1 of 6</span>
+                    <button class="btn-magenta" onclick="nextRocketrySlide()" style="padding: 8px 18px; font-size: 0.9rem;">Next ›</button>
+                </div>
             </div>
 
+            <div class="showcase-info-card">
+                <span id="rocketry-tag" class="showcase-tag">Midpower Flight</span>
+                <h3 id="rocketry-title">Midpower Rocket Launch 1</h3>
+                <p id="rocketry-desc">Flight test footage of a custom mid-power rocket build. Design parameters emphasize strength-to-weight optimization utilizing custom carbon fiber and fiberglass composite body tubes.</p>
+                <ul class="showcase-specs" id="rocketry-specs">
+                    <li><span>Classification:</span> <strong>Mid-Power</strong></li>
+                    <li><span>Primary Material:</span> <strong>Carbon Fiber Composite</strong></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="background: var(--bg-card); padding: 25px 30px; border-radius: 12px; border-left: 5px solid var(--accent-magenta); max-width: 1100px; margin: 40px auto 0 auto; text-align: left; box-sizing: border-box; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);">
+            <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.6; margin: 0;">
+                If you would like access to the technical documentation, design files, or more details in general, please feel free to contact me at <a href="mailto:sarahtise101@gmail.com" style="color: var(--accent-magenta); text-decoration: none; font-weight: bold;">sarahtise101@gmail.com</a>!
+            </p>
         </div>
 
         <div style="margin-top: 40px;">
@@ -688,7 +709,7 @@
         }
 
         /* -------------------------------------------------------------
-           WRIST SUPPORT SLIDER DATA (EXACT 6 SLIDES)
+           WRIST SUPPORT SLIDER DATA
         ------------------------------------------------------------- */
         const wristData = [
             {
@@ -790,6 +811,106 @@
         function prevWristSlide() {
             wristIndex = (wristIndex - 1 + wristData.length) % wristData.length;
             updateWristSlide();
+        }
+
+        /* -------------------------------------------------------------
+           ROCKETRY VIDEO SLIDER DATA (NEW)
+        ------------------------------------------------------------- */
+        const rocketryData = [
+            {
+                vid: "m1.mp4",
+                tag: "Midpower Flight",
+                title: "Midpower Rocket Launch 1",
+                desc: "Flight test footage of a custom mid-power rocket build. Design parameters emphasize strength-to-weight optimization utilizing custom carbon fiber and fiberglass composite body tubes.",
+                specs: [
+                    { label: "Classification", value: "Mid-Power" },
+                    { label: "Primary Material", value: "Carbon Fiber Composite" }
+                ]
+            },
+            {
+                vid: "m2.mp4",
+                tag: "Midpower Flight",
+                title: "Midpower Rocket Launch 2",
+                desc: "Secondary flight profile evaluating custom fin geometry and surface scuffing/finishing techniques designed to minimize drag during the ascent phase.",
+                specs: [
+                    { label: "Classification", value: "Mid-Power" },
+                    { label: "Airframe Finish", value: "Multi-stage Automotive Clear Coat" }
+                ]
+            },
+            {
+                vid: "l1.mp4",
+                tag: "Certification Flight",
+                title: "L1 High-Power Certification Flight",
+                desc: "Successful Level 1 certification flight demonstrating proper surface preparation, epoxy bonding of G10/G12 fiberglass fins, and reliable motor hardware assembly.",
+                specs: [
+                    { label: "Classification", value: "Level 1 High-Power" },
+                    { label: "Fin Assembly", value: "Epoxy Bonded Fiberglass" }
+                ]
+            },
+            {
+                vid: "u1.mp4",
+                tag: "NASA USLI",
+                title: "USLI Fullscale Vehicle Demonstration 1",
+                desc: "Fullscale Vehicle Demonstration Flight for the 2025-2026 NASA University Student Launch Initiative. Focused on achieving target apogee and validating aerodynamic trajectory modeling in RASAero II and RocketPy.",
+                specs: [
+                    { label: "Competition", value: "NASA USLI 2025-2026" },
+                    { label: "Objective", value: "Apogee Target Accuracy" }
+                ]
+            },
+            {
+                vid: "u2.mp4",
+                tag: "NASA USLI",
+                title: "USLI Fullscale Vehicle Demonstration 2",
+                desc: "Secondary view of the fullscale launch profile. Successful ignition and stable flight characteristics heavily depend on pre-flight hazard analysis and strict safety documentation.",
+                specs: [
+                    { label: "Competition", value: "NASA USLI 2025-2026" },
+                    { label: "Pre-Flight Requirement", value: "Flight Readiness Review (FRR)" }
+                ]
+            },
+            {
+                vid: "e1.mp4",
+                tag: "Avionics / Recovery",
+                title: "Dual-Deployment Ground Ejection Test",
+                desc: "Ground testing of the recovery system's energetic deployment charges. Validates the altimeter wiring logic and ensures the dual-deployment system successfully separates the airframe for parachute extraction without failure.",
+                specs: [
+                    { label: "System", value: "Dual-Deployment Avionics Bay" },
+                    { label: "Test Objective", value: "Energetic Charge Sizing & Separation" }
+                ]
+            }
+        ];
+
+        let rocketryIndex = 0;
+
+        function updateRocketrySlide() {
+            const data = rocketryData[rocketryIndex];
+            const vidEl = document.getElementById('rocketry-vid');
+
+            vidEl.style.opacity = 0;
+            setTimeout(() => {
+                vidEl.src = data.vid;
+                vidEl.play(); // Ensures the newly loaded video begins playing immediately
+                vidEl.style.opacity = 1;
+            }, 150);
+
+            document.getElementById('rocketry-tag').textContent = data.tag;
+            document.getElementById('rocketry-title').textContent = data.title;
+            document.getElementById('rocketry-desc').textContent = data.desc;
+            document.getElementById('rocketry-counter').textContent = `Video ${rocketryIndex + 1} of ${rocketryData.length}`;
+
+            const specsList = document.getElementById('rocketry-specs');
+            specsList.innerHTML = data.specs.map(s => 
+                `<li><span>${s.label}:</span> <strong>${s.value}</strong></li>`
+            ).join('');
+        }
+
+        function nextRocketrySlide() {
+            rocketryIndex = (rocketryIndex + 1) % rocketryData.length;
+            updateRocketrySlide();
+        }
+
+        function prevRocketrySlide() {
+            rocketryIndex = (rocketryIndex - 1 + rocketryData.length) % rocketryData.length;
+            updateRocketrySlide();
         }
     </script>
 </body>
